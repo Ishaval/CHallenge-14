@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{post.title}}</title>
+  </head>
+  <body>
+    <div class="title">
+      <h1>The Tech Blog</h1>
+    </div>
+    <div class="post">
+      <div class="top-card">
+        <h1 class="post-title">{{post.title}}</h1>
+        <p class="card-user-info">Posted by:
+          {{post.user.username}}
+          on
+          {{format_date this.post.createdAt}}</p>
+      </div>
+      <p class="post-box">{{post.content}}</p>
+    </div>
+    <div class="post">
+      <h2>Comments</h2>
+      <div class="posts" id="comments-container">
+        {{#each post.comments}}
+          <div>
+            <div class="top-card">
+              <p>Posted by: {{user.username}}</p>
+              <p>Posted on: {{format_date createdAt}}</p>
+            </div>
+            <div class="post-box">
+              <p>{{content}}</p>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="post">
+      <h2 class="top-card">Left a comment</h2>
+      <form class="post-box" id="new-comment-form">
+        <input type="hidden" name="postId" value="{{post.id}}" />
+        <div class="new-post-input">
+          <label for="comment-content">Comment:</label>
+          <textarea
+            id="comment-content"
+            name="content"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+        <button class="submit-button" type="submit">Submit</button>
+      </form>
+    </div>
+    <script src="/js/comment.js"></script>
+  </body>
+</html>

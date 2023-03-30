@@ -1,0 +1,58 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="title">
+      <h1>Your Dashboard</h1>
+    </div>
+    <ul class="posts" id="user-posts">
+      {{#each posts}}
+        <li>
+          <div class="post" data-post-id="{{this.id}}">
+            <div class="top-card">
+              <div class="top-card-btn">
+                <h3>{{this.title}}</h3>
+                <button class="edit-post-btn">Edit</button>
+              </div>
+              <p>Posted on: {{format_date this.createdAt}}</p>
+            </div>
+            <div class="post-box">
+              <p id="post-box-content">{{this.content}}</p>
+            </div>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+
+    <div id="new-post-container" style="display: none;">
+      <form class="new-post-form" id="new-post-form">
+        <div class="top-card">
+          <div class="top-card-btn">
+            <h3>Create new post</h3>
+          </div>
+        </div>
+        <div class="post-box">
+          <div class="new-post-input">
+            <label for="post-input">Title:</label>
+            <input type="text" id="post-title" name="title" required />
+          </div>
+          <div class="new-post-input">
+            <label for="post-content">Content:</label>
+            <textarea
+              id="post-content"
+              name="content"
+              rows="4"
+              required
+            ></textarea>
+          </div>
+          <button class="submit-button" type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+    <button class="new-post-button" id="new-post-btn">New Post</button>
+    <script src="/js/dashboard.js"></script>
+  </body>
+</html>
