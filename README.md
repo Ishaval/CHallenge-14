@@ -18,7 +18,7 @@ Tech Blog is a CMS-style blog site similar to a Wordpress site, where developers
 
 ## Live Demo
 
-Check out the live demo of the application [HERE](#http)
+Check out the live demo of the application [HERE](#https://ishaval.github.io/CHallenge-14/)
 
 ## Technologies Used
 
